@@ -1,0 +1,351 @@
+/* Import Outfit or Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+  --bg-primary: #08080a;
+  --bg-secondary: #111114;
+  --card-bg: rgba(18, 18, 22, 0.75);
+  --accent-crimson: #ff2a4b;
+  --accent-crimson-hover: #e01b3a;
+  --text-main: #f0f0f4;
+  --text-muted: #8e8e9c;
+  --border-color: rgba(255, 42, 75, 0.15);
+  --border-focus: rgba(255, 42, 75, 0.6);
+  --success-color: #2ed573;
+  --error-color: #ff4757;
+  --shadow-glow: 0 0 20px rgba(255, 42, 75, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(30, 20, 25, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 90% 80%, rgba(255, 42, 75, 0.04) 0%, transparent 50%);
+  color: var(--text-main);
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* Outer layout container */
+.all {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.7),
+    var(--shadow-glow);
+  padding: 30px;
+  animation: cardAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Batman Initiative Header badge */
+.batman-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.batman-badge {
+  background: rgba(255, 42, 75, 0.08);
+  border: 1px solid var(--accent-crimson);
+  color: var(--accent-crimson);
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  font-weight: 800;
+  padding: 6px 16px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  box-shadow: 0 0 12px rgba(255, 42, 75, 0.15);
+}
+
+/* Tab Navigation styling */
+.tab-navigation {
+  display: flex;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  margin-bottom: 30px;
+}
+
+.tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-btn:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.tab-btn.active {
+  background: var(--accent-crimson);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(255, 42, 75, 0.35);
+}
+
+/* Card Content & Inner Container */
+.card-content {
+  width: 100%;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Bat Symbol Decorative element */
+.batman-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.bat-sigil {
+  width: 50px;
+  height: 25px;
+  background-color: var(--accent-crimson);
+  /* Elegant modern Batman symbol CSS clip-path representation */
+  clip-path: polygon(
+    50% 30%, 65% 0%, 70% 30%, 85% 20%, 95% 35%, 100% 30%, 90% 70%, 75% 75%, 60% 85%, 50% 100%, 40% 85%, 25% 75%, 10% 70%, 0% 30%, 5% 35%, 15% 20%, 30% 30%, 35% 0%
+  );
+  opacity: 0.85;
+  filter: drop-shadow(0 0 6px rgba(255, 42, 75, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.login-container:hover .bat-sigil {
+  transform: scale(1.1) rotate(2deg);
+}
+
+/* Titles and Subtitles */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--text-main);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Form inputs & Groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+input {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+input:focus {
+  border-color: var(--accent-crimson);
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 10px rgba(255, 42, 75, 0.15);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* Premium Buttons */
+.btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--accent-crimson);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(255, 42, 75, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--accent-crimson-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255, 42, 75, 0.45);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: #1c1c24;
+  color: var(--accent-crimson);
+  border: 1px solid rgba(255, 42, 75, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.btn-secondary:hover {
+  background: #24242e;
+  border-color: var(--accent-crimson);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.35),
+    0 0 10px rgba(255, 42, 75, 0.2);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Results Display Box */
+.status-box {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 24px;
+  animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.status-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.status-details {
+  font-size: 0.85rem;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-details strong {
+  color: var(--text-muted);
+}
+
+.response-message {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid var(--text-muted);
+}
+
+.response-message.success {
+  border-left-color: var(--success-color);
+  color: var(--success-color);
+  background: rgba(46, 213, 115, 0.05);
+}
+
+.response-message.error {
+  border-left-color: var(--error-color);
+  color: var(--error-color);
+  background: rgba(255, 71, 87, 0.05);
+}
+
+/* Animations */
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Simple mobile optimization */
+@media (max-width: 480px) {
+  .all {
+    padding: 24px 20px;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+}
